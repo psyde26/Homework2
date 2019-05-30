@@ -140,8 +140,9 @@ for classes in school:
 # По информации о учениках разных классов нужно найти класс, в котором больше всего девочек и больше всего мальчиков.
 school = [
   {'class': '2a', 'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}]},
-  {'class': '3c', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]},
+  {'class': '3c', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]}
 ]
+
 is_male = {
   'Маша': False,
   'Оля': False,
@@ -149,32 +150,27 @@ is_male = {
   'Миша': True,
 }
 
+most_men_class = 0
+most_women_class = 0
+
 for classes in school:
-  list_of_names = []
-  male_gender = 0
-  female_gender = 0
-  for names_of_students in classes['students']:
-      list_of_names.append(names_of_students.get('first_name'))
-
-  for names in list_of_names:
-      if names in is_male:
-          if is_male[names] is True:
-              male_gender = male_gender + 1
-          else:
-              female_gender = female_gender + 1
-
-  dict_for_genders = {}
-  dict_for_genders['female'] = female_gender
-  dict_for_genders['male'] = male_gender
-  overall_dict = {}
-  overall_dict['class'] = classes['class']
-  overall_dict['genders'] = dict_for_genders
-  print(overall_dict)
-
-
-
-    
-        
+  men = 0
+  women = 0
+  list_1 = []
+  for students in classes['students']:
+      list_1.append(students.get('first_name'))
+      for names in list_1:
+        if is_male[names] is True:
+          men = men + 1
+        elif is_male[names] is False:
+          women = women + 1
+  if men > most_men_class:
+    result = 'Больше всего мальчиков в классе {}'.format(classes['class'])
+    print(result)
+  elif women > most_women_class:
+    result = 'Больше всего девочек в классе {}'.format(classes['class'])
+    print(result)
+            
           
 
 # Пример вывода:
