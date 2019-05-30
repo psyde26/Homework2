@@ -6,10 +6,9 @@ print(word[-1])
 
 # Вывести количество букв а в слове
 word = 'Архангельск'.lower()
-sum_a = 0
 for i in word:
     if i == 'а':
-        sum_a = sum_a + 1
+        sum_a = word.count(i)
 print(sum_a)
 
 
@@ -37,8 +36,7 @@ print(len(sentence))
 sentence = 'Мы приехали в гости'
 words = sentence.split(' ')
 for i in words:
-    i = i[0]
-    print(i)
+    print(i[0])
 
 
 

@@ -148,7 +148,30 @@ is_male = {
   'Олег': True,
   'Миша': True,
 }
-# ???
+
+import collections
+
+
+for classes in school:
+  new_list = []
+  for st_names in classes['students']:
+    new_list.append(st_names.get('first_name'))
+  print(new_list)
+
+  for names in new_list:
+    if names in is_male:
+      count = collections.Counter()
+      if is_male[names] is True:
+        count[names] =+ 1
+        print(count)
+      elif is_male[names] is False:
+        count[names] =+ 1
+        print(count)
+
+
+    
+        
+          
 
 # Пример вывода:
 # Больше всего мальчиков в классе 3c

@@ -32,6 +32,8 @@ for each_name in names:
             print(each_name, 'м')
         else:
             print(each_name, 'ж')
+    else:
+      print('Данного имени нет в списке')
 
 
 # Задание 4
