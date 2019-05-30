@@ -149,24 +149,28 @@ is_male = {
   'Миша': True,
 }
 
-import collections
-
-
 for classes in school:
-  new_list = []
-  for st_names in classes['students']:
-    new_list.append(st_names.get('first_name'))
-  print(new_list)
+  list_of_names = []
+  male_gender = 0
+  female_gender = 0
+  for names_of_students in classes['students']:
+      list_of_names.append(names_of_students.get('first_name'))
 
-  for names in new_list:
-    if names in is_male:
-      count = collections.Counter()
-      if is_male[names] is True:
-        count[names] =+ 1
-        print(count)
-      elif is_male[names] is False:
-        count[names] =+ 1
-        print(count)
+  for names in list_of_names:
+      if names in is_male:
+          if is_male[names] is True:
+              male_gender = male_gender + 1
+          else:
+              female_gender = female_gender + 1
+
+  dict_for_genders = {}
+  dict_for_genders['female'] = female_gender
+  dict_for_genders['male'] = male_gender
+  overall_dict = {}
+  overall_dict['class'] = classes['class']
+  overall_dict['genders'] = dict_for_genders
+  print(overall_dict)
+
 
 
     
